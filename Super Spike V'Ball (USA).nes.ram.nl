@@ -65,7 +65,9 @@ $0090#plyr_type[0]#
 $0091#plyr_type[1]#
 $0092#plyr_type[2]#
 $0093#plyr_type[3]#
-$0097#plyr_anim[0]#bit7= Direction 0 = right, 1= left
+$0097#plyr_anim[0]#1-3 Walking
+\4 = Throwing ball up
+\5 = waving/Ball hit 1
 $0098#plyr_anim[1]#
 $0099#plyr_anim[2]#
 $009A#plyr_anim[3]#
@@ -81,10 +83,10 @@ $00AD#p2_x_hi?#
 $00AE#p3_x_hi?#
 $00B0#ball_x_delta_hi?#
 $00B2#ball_x_?_hi#
-$00B3#obj_z_delta?[0]#
-$00B4#obj_z_delta?[1]#
-$00B5#obj_z_delta?[2]#
-$00B6#obj_z_delta?[3]#
+$00B3#plyr_x_?[0]#
+$00B4#plyr_x_?[1]#
+$00B5#plyr_x_?[2]#
+$00B6#plyr_x_?[3]#
 $00B7#obj_z_delta?[4]#Signed
 $00BA#plyr_y[0]#
 $00BB#plyr_y[1]#
@@ -96,10 +98,14 @@ $00C1#player_y_base_hi#
 $00C4#p4_y_hi?#
 $00C5#ball_y_hi?#
 $00C7#ball_y?hi#
-$00CF#plyr_y_offset[0]#Offset applied to the sprite Y
-$00D0#plyr_y_offset[1]#
-$00D1#plyr_y_offset[2]#
-$00D2#plyr_y_offset[3]#
+$00C8#plyr_jump[0]#
+$00C9#plyr_jump[1]#
+$00CA#plyr_jump[2]#
+$00CB#plyr_jump[3]#
+$00CF#plyr_z[0]#
+$00D0#plyr_z[1]#
+$00D1#plyr_z[2]#
+$00D2#plyr_z[3]#
 $00D3#ball_y_delta_lo#Signed?  Goes negative
 $00D5#var_d5_lo#
 $00DA#ball_y_delta_hi#
@@ -127,11 +133,28 @@ $0325#Bank_Data?#
 $032C#plyr_y_delta?#Signed
 $0340#0300_var0_lo#
 $0346#0300_var0_hi#
-$0358#ball_y_delta_lo?#
-$035E#ball_y_delta_hi#
+$0348#plyr_x_delta_?[0]#
+$0349#plyr_x_delta_?[1]#
+$034A#plyr_x_delta_?[2]#
+$034B#plyr_x_delta_?[3]#
+$034E#plyr_y_delta?[0]#
+$034F#plyr_y_delta?[1]#
+$0350#plyr_y_delta?[2]#
+$0351#plyr_y_delta?[3]#
+$0354#obj_z_delta_lo[0]#1-4 players, 5 is ball.  Hi byte straight afterward
+$0355#obj_z_delta_lo[1]#
+$0356#obj_z_delta_lo[2]#
+$0357#obj_z_delta_lo[3]#
+$0358#obj_z_delta_lo[4]#
+$035A#obj_z_delta[0]#Delta to apply to the object.  players 1-4 and the ball
+$035B#obj_z_delta[1]#
+$035C#obj_z_delta[2]#
+$035D#obj_z_delta[3]#
+$035E#obj_z_delta[4]#
+$0360#?_delta_lo#
+$0366#?_delta_hi#
 $036A#ball_y_delta_calc_tmp1#
 $0388#plyr_flag[0]#0x01 = bit0 Receiving the serve?
-\0x04 = bit2 Hitting ball
 $0389#plyr_flag[1]#
 $038A#plyr_flag[2]#
 $038B#plyr_flag[3]#
@@ -148,6 +171,10 @@ $03AE#px-bx#
 $03B2#py-by#
 $03E6#tbl_data?#
 $041F#base#
+$0437#plyr_flags[0]#bit7 = Direction 0=right, 1=left
+$0438#plyr_flags[1]#
+$0439#plyr_flags[2]#
+$043A#plyr_flags[3]#
 $045F#ball_state#0x00 Match start? also maybe off net?
 $0460#ball_state_old?#
 $0468##04 = 1st set, P1 return spike KABOOM
@@ -169,13 +196,7 @@ $04A1#0400_var0_hi#
 $04A2#0400_var0_8bit#
 $04A3#ball state + ?#
 $04AC#sprite_base#Format:
-\0 =
-\1 =
-\2 = 16bit x location, offset by the PPU scroll
 $04BC#sprite_base#0 = 80
-\1 = Player type
-\2 = 
-\3 = X
 $04BD#p1_sprite_type?#
 $04BE#p1_animation#0x00 = Left
 $04D7#player_blink#Show player indicator

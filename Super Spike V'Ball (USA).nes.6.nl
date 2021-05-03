@@ -12,7 +12,7 @@ $8112##
 $814E##bit3 set
 $815F##bit0 not set
 $816F##Increment player number, check to see if it's the last player.
-$8178#calc_player_distance_from_ball?#Start at player 4
+$8178#calc_all_players_distance_from_ball#Starts at player 4, result is signed and ends up in tmp_var5_8bit
 $817A#next_player#
 $818D##turn on bit7 1F
 $8196#var0_not_negative#
@@ -42,28 +42,38 @@ $8704#player_?#X reg holds the player number to check
 $870C##bit2 and bit6
 $8739##select function from table and jump
 $874D#end#
-$874E#tbl_func#
+$874E#tbl_func_jmp#Selects a address to JMP to based on func_select var
 $87B7#do_func_select?#
 $87BE##less than 15?
 $87CE##turn on bit2
 $87D3#end#
+$87E3##set var6 JMP address from table
+$87ED##hardcode var0 JMP to $87F8
 $8817#sub_#
 $8833##use var5 to jump to 0x883E later
 $883E#jsr_jmp_#
 $88C3#tbl_jmp_#
+$88C9#sub_flags?_then_jmp_var0#
+$88D4#bit6 not set#
+$88D9##negate Y
+$88DA##
+$88E0#skip negation#
 $88E7#sub_#
 $8907#copy_323_to_437#
+$9127##Hitting ball, bit2
 $934F#sub_func?#
 $935E##load 16bit address of table to use
 $9368##load var6 from table
 $936D##
 $93DE#tbl_data_16bit#
 $948A#tbl_8bit#
-$94B3#sub_?#
+$94B3#load_player_animation#Get player state and select which frame of animation to use.
 $94C2##load table address
 $94CF##load from table
-$94DA##toggle bit7?
-$94E3#tbl_data_16bit#
+$94D8##toggle bit7, change facing direction
+$94DA##
+$94DE#don't change direction#
+$94E3#tbl_16bit_animation?#
 $9666#clear_on_xoffset#
 $9680##turn on bit7
 $96A5#end#
@@ -141,7 +151,7 @@ $A114#sub_serve#Called when the player throws up the ball to serve
 $A145#jump_ball_hit?#
 $A166#spike_ball#
 $A19E#sub_ball?#var0 = ball_delta_y
-$A1AA##var1 = ball sprite y?
+$A1AA##var1 = ball Z delta
 $A1B4##var2 = ?
 $A1BE##clear a load of temp vars
 $A1CA#loop#

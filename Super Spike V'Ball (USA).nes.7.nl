@@ -148,8 +148,8 @@ $E487##push var2 to the stack
 $E490##pull it back out again
 $E4BF#tbl_ball_flags#
 $E517#calc_object_movement?#
-$E56D##0x354 -= 0x360
-$E577##0x35A -= 0x366
+$E56D##obj_z_delta - ?_delta
+$E577##
 $E581#sub_#Put A, X and Y into the stack
 $E58C##Pull them back out again
 $E592#sub_#
