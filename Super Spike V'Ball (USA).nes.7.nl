@@ -42,6 +42,7 @@ $C6FE#sub_main1#
 $C704##X is now current object
 $C706##init vars
 $C721#player_x_movement?#
+$C72B#px < 0xC8#
 $C735##Y eventually gets used for a jmp table, so this is just one big If X <= somevalue
 $C73D##
 $C748#3_y_inc#
@@ -147,6 +148,7 @@ $E480#loop#
 $E487##push var2 to the stack
 $E490##pull it back out again
 $E4BF#tbl_ball_flags#
+$E506##plyr_y += A
 $E517#calc_object_movement?#
 $E56D##obj_z_delta - ?_delta
 $E577##

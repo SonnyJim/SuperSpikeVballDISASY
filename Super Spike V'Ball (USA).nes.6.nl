@@ -12,7 +12,7 @@ $8112##
 $814E##bit3 set
 $815F##bit0 not set
 $816F##Increment player number, check to see if it's the last player.
-$8178#calc_all_players_distance_from_ball#Starts at player 4, result is signed and ends up in tmp_var5_8bit
+$8178#calc_all_players_distance_from_ball#Starts at player 4, result in tmp_var5_8bit gets written to plyr_flags
 $817A#next_player#
 $818D##turn on bit7 1F
 $8196#var0_not_negative#
@@ -22,7 +22,7 @@ $81A6##
 $81B0##clear bit6
 $81B9#var0_not_negative#
 $81C1#var0_empty#
-$81C4##????
+$81C4##var0 = plyr_z - ball_z
 $81D6#var0_not_negative#
 $81DE#var0 = 0#
 $81E6##next player?
@@ -49,6 +49,8 @@ $87CE##turn on bit2
 $87D3#end#
 $87E3##set var6 JMP address from table
 $87ED##hardcode var0 JMP to $87F8
+$87FF##turn on bit7
+$8809##turn off bit7
 $8817#sub_#
 $8833##use var5 to jump to 0x883E later
 $883E#jsr_jmp_#
@@ -105,7 +107,7 @@ $9A5E##get the player number
 $9A60##ball x/y = p_x/y
 $9A6B##
 $9A6F##
-$9A75##?
+$9A75##set ball Z
 $9A7C##clear ball rotation and ?
 $9A88#reset scroll#
 $9A8C#end_sub#
@@ -159,6 +161,7 @@ $A372##update ball vars?
 $A3E4#sub_#
 $A46B##clear var0-1 hi
 $A54D#var0=0300_var0#
+$A634#sub_plyr_#
 $A6A7#sub_#
 $A6E8##var0=var1
 $A76D#ball state = 7#
@@ -167,6 +170,7 @@ $A85C##var5(ish)=var0
 $A878#ball_spiked?#
 $A8A9#ballstate<6#
 $A8CA##0x49 *(0x4A3 * 2)?
+$A913##player hit ball, give it some Z delta
 $A91D#end#
 $A91E#tbl_?#ball state used as offset
 $A92F#sub_subtracions#0x49a = A4 - A2

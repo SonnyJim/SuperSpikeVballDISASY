@@ -1,0 +1,20 @@
+A9 = Ball x lo
+BE = Ball y lo
+D3 = Ball z lo
+Ab
+B0
+B2
+C0
+C5
+C7
+
+$A5 = plyr_x_lo
+$AC = plyr_x_hi
+$BA = plyr_y_lo
+$C1 = plyr_y_hi
+$CF = plyr_z_lo
+$D6 = plyr_z_hi
+
+$03AE = plyr_x - ball_x
+$03B2 = plyr_y - ball_y
+$03B6 = plyr_z - ball_z

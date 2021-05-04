@@ -48,7 +48,7 @@ $0068#sets_to_win?#
 $0069#team1_char#The character type for players on team 1
 $006A#team2_char_tmp#
 $0070#current_object#Which player we are currently working on?
-$0073#offset#
+$0073#offset#player number
 $0076#ball_hits#How many times the ball has been hit by the same team
 $0078#menu_selection2#
 $007B#team_score[0]#
@@ -66,37 +66,38 @@ $0091#plyr_type[1]#
 $0092#plyr_type[2]#
 $0093#plyr_type[3]#
 $0097#plyr_anim[0]#1-3 Walking
-\4 = Throwing ball up
-\5 = waving/Ball hit 1
 $0098#plyr_anim[1]#
 $0099#plyr_anim[2]#
 $009A#plyr_anim[3]#
 $009B#ball_rotation#
-$00A5#plyr_x[0]#isometric offset?
-$00A6#plyr_x[1]#
-$00A7#plyr_x[2]#
-$00A8#p4_x#
-$00A9#ball_x_delta#
-$00AB#ball_x_?#
-$00AC#player_base_x_hi?#
-$00AD#p2_x_hi?#
-$00AE#p3_x_hi?#
-$00B0#ball_x_delta_hi?#
+$00A5#plyr_x_lo[0]#
+$00A6#plyr_x_lo[1]#
+$00A7#plyr_x_lo[2]#
+$00A8#plyr_x_lo[3]#
+$00A9#ball_x_lo#
+$00AB#ball_x_delta_lo#
+$00AC#plyr_x_hi[0]#
+$00AD#plyr_x_hi[1]#
+$00AE#plyr_x_hi[2]#
+$00AF#plyr_x_hi[3]#
+$00B0#ball_x_hi#
 $00B2#ball_x_?_hi#
 $00B3#plyr_x_?[0]#
 $00B4#plyr_x_?[1]#
 $00B5#plyr_x_?[2]#
 $00B6#plyr_x_?[3]#
 $00B7#obj_z_delta?[4]#Signed
-$00BA#plyr_y[0]#
-$00BB#plyr_y[1]#
-$00BC#plyr_y[2]#
-$00BD#plyr_??[3]#
+$00BA#plyr_y_lo[0]#
+$00BB#plyr_y_lo[1]#
+$00BC#plyr_y_lo[2]#
+$00BD#plyr_y_lo[3]#
 $00BE#ball_y_lo#
 $00C0#ball_z_delta#
-$00C1#player_y_base_hi#
-$00C4#p4_y_hi?#
-$00C5#ball_y_hi?#
+$00C1#plyr_y_hi[0]#
+$00C2#plyr_y_hi[1]#
+$00C3#plyr_y_hi[2]#
+$00C4#plyr_y_hi[3]#
+$00C5#ball_y_hi#
 $00C7#ball_y?hi#
 $00C8#plyr_jump[0]#
 $00C9#plyr_jump[1]#
@@ -106,9 +107,13 @@ $00CF#plyr_z[0]#
 $00D0#plyr_z[1]#
 $00D1#plyr_z[2]#
 $00D2#plyr_z[3]#
-$00D3#ball_y_delta_lo#Signed?  Goes negative
+$00D3#ball_z_lo#Signed?  Goes negative
 $00D5#var_d5_lo#
-$00DA#ball_y_delta_hi#
+$00D6#plyr_z_hi[0]#
+$00D7#plyr_z_hi[1]#
+$00D8#plyr_z_hi[2]#
+$00D9#plyr_z_hi[3]#
+$00DA#ball_z_hi#
 $00DC#var_D5_hi#
 $00DF#always_zero?#Used during the joystick read and assumes it's zero.
 $00E2#ppu_ctrl_mask#
@@ -150,10 +155,11 @@ $035A#obj_z_delta[0]#Delta to apply to the object.  players 1-4 and the ball
 $035B#obj_z_delta[1]#
 $035C#obj_z_delta[2]#
 $035D#obj_z_delta[3]#
-$035E#obj_z_delta[4]#
+$035E#obj_z_delta_hi[4]#
 $0360#?_delta_lo#
+$0364#ball_calc_z_lo#
 $0366#?_delta_hi#
-$036A#ball_y_delta_calc_tmp1#
+$036A#ball_calc_z_hi#
 $0388#plyr_flag[0]#0x01 = bit0 Receiving the serve?
 $0389#plyr_flag[1]#
 $038A#plyr_flag[2]#
@@ -167,10 +173,21 @@ $03A0#current_obj?[2]#
 $03A1#current_obj?[3]#
 $03A2#func_select_old#With bit7 turned off
 $03AA#player_flag_base#
-$03AE#px-bx#
-$03B2#py-by#
+$03AE#px-bx[0]#
+$03AF#px-bx[1]#
+$03B0#px-bx[2]#
+$03B1#px-bx[3]#
+$03B2#py-by[0]#
+$03B3#py-by[1]#
+$03B4#py-by[2]#
+$03B5#py-by[3]#
+$03B6#pz-bz[0]#Player z - Ball Z
+$03B7#pz-bz[1]#
+$03B8#pz-bz[2]#
+$03B9#pz-bz[3]#
 $03E6#tbl_data?#
 $041F#base#
+$0433#plyr_flags??#Bit7 turned on in pz-bz less than 0x40
 $0437#plyr_flags[0]#bit7 = Direction 0=right, 1=left
 $0438#plyr_flags[1]#
 $0439#plyr_flags[2]#
