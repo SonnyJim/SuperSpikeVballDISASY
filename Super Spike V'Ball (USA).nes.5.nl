@@ -10,9 +10,13 @@ $8117#sub_var5=87B7#load up the var for use in a data table
 $8124##load var0 from table
 $8149##turn on bit5
 $814F##var0 = var4
-$828A#ld_var1,var2,var4,var5 from table#
-$828D##pad for 24bits
-$8291##load var5 from table
+$81D4#sub_#
+$81E7##load jmp var with $8BE9
+$8275#end_#
+$828A#ld_var1,var2,var4,var5 from table X=plyr#
+$828D##times by 8
+$8291##load address from table and store into var5
+$82A5##load from table address
 $82AD##Load var1,var2 and var4 from table
 $82CB#tbl_data#3 bytes
 $82D3#tbl_data_3bytes#

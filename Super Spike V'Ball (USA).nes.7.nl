@@ -1,6 +1,7 @@
 $C006#main#
 $C024#jmp_negate_var0#
 $C027#jmp_negate_var2#
+$C02D#jmp_negate_var5#
 $C030#jmp_negate_var3#
 $C033#jmp_var2=var0/var1#
 $C036#clear_vars?#
@@ -109,6 +110,7 @@ $D96D#bankswitch 2#
 $D997##bit0 to bit3
 $D9B3#2nd_set#
 $D9DA#end#
+$D9DB#7A != 3#
 $DA63#tbl_?#
 $DBB5#end#
 $DBC6#sub_#
@@ -161,7 +163,7 @@ $E636#negate_16bit_var2#
 $E648#negate_var0-8bv2#
 $E662#negate_var5_8bv2#
 $E67C#negate_var3#Flip 0x23, add 1?
-$E696#sub_var2=var0/var1#Push X and Y to the stack,
+$E696#calc_ball_deltas#sub_var2=var0/var1
 $E69A##clear var2
 $E6A0##check if var1 is zero
 $E6A6##var1 = 0

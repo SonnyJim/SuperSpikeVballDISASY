@@ -75,13 +75,13 @@ $00A6#plyr_x_lo[1]#
 $00A7#plyr_x_lo[2]#
 $00A8#plyr_x_lo[3]#
 $00A9#ball_x_lo#
-$00AB#ball_x_delta_lo#
+$00AB#ball_x2_lo#
 $00AC#plyr_x_hi[0]#
 $00AD#plyr_x_hi[1]#
 $00AE#plyr_x_hi[2]#
 $00AF#plyr_x_hi[3]#
 $00B0#ball_x_hi#
-$00B2#ball_x_?_hi#
+$00B2#ball_x2_hi#
 $00B3#plyr_x_?[0]#
 $00B4#plyr_x_?[1]#
 $00B5#plyr_x_?[2]#
@@ -92,13 +92,13 @@ $00BB#plyr_y_lo[1]#
 $00BC#plyr_y_lo[2]#
 $00BD#plyr_y_lo[3]#
 $00BE#ball_y_lo#
-$00C0#ball_z_delta#
+$00C0#ball_y2_lo#
 $00C1#plyr_y_hi[0]#
 $00C2#plyr_y_hi[1]#
 $00C3#plyr_y_hi[2]#
 $00C4#plyr_y_hi[3]#
 $00C5#ball_y_hi#
-$00C7#ball_y?hi#
+$00C7#ball_y2_hi#
 $00C8#plyr_jump[0]#
 $00C9#plyr_jump[1]#
 $00CA#plyr_jump[2]#
@@ -136,16 +136,18 @@ $0323#somevar_hi#
 $0324#bank_data1#
 $0325#Bank_Data?#
 $032C#plyr_y_delta?#Signed
-$0340#0300_var0_lo#
-$0346#0300_var0_hi#
+$0340#ball_delta_x_lo#
+$0346#ball_delta_x_hi#
 $0348#plyr_x_delta_?[0]#
 $0349#plyr_x_delta_?[1]#
 $034A#plyr_x_delta_?[2]#
 $034B#plyr_x_delta_?[3]#
+$034C#ball_delta?_y_lo#
 $034E#plyr_y_delta?[0]#
 $034F#plyr_y_delta?[1]#
 $0350#plyr_y_delta?[2]#
 $0351#plyr_y_delta?[3]#
+$0352#ball_delta?_y_hi#
 $0354#obj_z_delta_lo[0]#1-4 players, 5 is ball.  Hi byte straight afterward
 $0355#obj_z_delta_lo[1]#
 $0356#obj_z_delta_lo[2]#
@@ -166,6 +168,7 @@ $038A#plyr_flag[2]#
 $038B#plyr_flag[3]#
 $038C#p3_char#
 $038D#p4_char#
+$0390#16bit_#
 $0394#func_select#Chooses what function when we hit the ball?
 $039E#ball_#
 $039F#current_obj?[1]#
@@ -193,6 +196,11 @@ $0438#plyr_flags[1]#
 $0439#plyr_flags[2]#
 $043A#plyr_flags[3]#
 $045F#ball_state#0x00 Match start? also maybe off net?
+\0x02 Served
+\0x03 Hit from serve
+\0x05 First set
+\0x08 2nd set
+\0x0A Spiked
 $0460#ball_state_old?#
 $0468##04 = 1st set, P1 return spike KABOOM
 $0469#16bit_base?#
@@ -203,8 +211,8 @@ $047D#3f_hi?#
 $047F#0400_var1_lo#
 $0480#0400_var1_hi#
 $0496#end_ball_timer?#
-$049B#another_ballx_delta_lo?#
-$049C#another_ballx_delta_hi?#
+$049B#?_lo#
+$049C#?_hi#
 $049D#varA#
 $049E#varA_lo#
 $049F#varA_hi#

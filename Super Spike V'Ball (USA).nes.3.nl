@@ -13,12 +13,17 @@ $977E#sub_#
 $97BE##Load up which table we'll be using
 $97E6#add A to var0#
 $984A#tbl_8bit_#
+$9864#check_plyr_flag#
 $9866##CPU player detection?
 $986E#not end#bit0 turned on
 $9871##bit1
 $9885##don't increment more than 4
 $98A3#bit1 not set#
+$98CB##turn off bit7
 $98E7#tbl_jmp#
 $998A#0x76>=2#
 $99AE#0x76>=1#
 $99F1#end#
+$9A45#sub_jmp_init_match?#
+$9B3A#copy and end#
+$9B62#tbl_16bit_#

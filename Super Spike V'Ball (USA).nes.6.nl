@@ -62,6 +62,8 @@ $88DA##
 $88E0#skip negation#
 $88E7#sub_#
 $8907#copy_323_to_437#
+$89C1#loop#
+$8B15#tbl_data_z_#
 $9127##Hitting ball, bit2
 $934F#sub_func?#
 $935E##load 16bit address of table to use
@@ -93,6 +95,8 @@ $9867#ballstate_#in air from serve
 $986A##
 $9881#<8#
 $9884#ball_rotate?#
+$98A6#spiked_ball_hit_floor#
+$98C3##set new ball z delta #0100
 $98F8#492==1#
 $996E##ball out of bounds
 $999F##rotate the ball, does some trickery to work out what sprites to use?
@@ -104,15 +108,19 @@ $99DF#ballstate_oob#
 $9A58#ballstate_in_hand#Seems to update the ball position based on a few things
 $9A5A##turn off bit5
 $9A5E##get the player number
-$9A60##ball x/y = p_x/y
+$9A60##Set ball xyz to plyr xyz
 $9A6B##
 $9A6F##
-$9A75##set ball Z
-$9A7C##clear ball rotation and ?
+$9A75##
+$9A7C##
+$9A80##clear ball rotation
 $9A88#reset scroll#
 $9A8C#end_sub#
 $9AAC#check_ball_valid#
 $9AB3##ball on floor
+$9ABB#ball_x2 = ball_x - 8#
+$9ACB#ball_x2 = ball_x + 8#
+$9AD8#do Y#
 $9BA2#ball_vars_copy#
 $9BC6#ball on ground#
 $9BD6#sub_ball_something#
@@ -160,10 +168,20 @@ $A1CA#loop#
 $A372##update ball vars?
 $A3E4#sub_#
 $A46B##clear var0-1 hi
+$A514##mask bit4
+$A516##shift it to bit0
+$A51A##flip it
 $A54D#var0=0300_var0#
+$A5A1#tbl_#
 $A634#sub_plyr_#
 $A6A7#sub_#
 $A6E8##var0=var1
+$A711##copy ? to var5
+$A72B#ball_delta_x=var5#
+$A72D##
+$A735##varA to var5
+$A754#skip_negate#
+$A75E##check ball_state
 $A76D#ball state = 7#
 $A84D#ballstate7#
 $A85C##var5(ish)=var0
@@ -175,6 +193,8 @@ $A91D#end#
 $A91E#tbl_?#ball state used as offset
 $A92F#sub_subtracions#0x49a = A4 - A2
 $A937##049B = ball x delta
+$A9D9#sub_346#
+$A9E7#sub_BIT_352#
 $AA51#sub_clear/init_vars#
 $AA7E#sub_ld_var6_var0#Load var6 and var0 from tables
 $AA82##get 16bit address from table, store into var6

@@ -1,20 +1,23 @@
-A9 = Ball x lo
-BE = Ball y lo
-D3 = Ball z lo
+$A9 = Ball x lo
+$B0 = Ball x hi 
+$BE = Ball y lo
+$C5 = Ball y hi
+$D3 = Ball z lo
+
 Ab
-B0
+
 B2
 C0
 C5
 C7
 
-$A5 = plyr_x_lo
-$AC = plyr_x_hi
-$BA = plyr_y_lo
-$C1 = plyr_y_hi
-$CF = plyr_z_lo
-$D6 = plyr_z_hi
+$A5+3 = plyr_x_lo
+$AC+3 = plyr_x_hi
+$BA+3 = plyr_y_lo
+$C1+3 = plyr_y_hi
+$CF+3 = plyr_z_lo
+$D6+3 = plyr_z_hi
 
-$03AE = plyr_x - ball_x
-$03B2 = plyr_y - ball_y
-$03B6 = plyr_z - ball_z
+$03AE+3 = plyr_x - ball_x
+$03B2+3 = plyr_y - ball_y
+$03B6+3 = plyr_z - ball_z
